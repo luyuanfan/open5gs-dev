@@ -1,3 +1,4 @@
+// JASMINE: we might be able to hard code the PLMN here. 
 
 #include <stdlib.h>
 #include <string.h>
@@ -8,13 +9,22 @@ OpenAPI_plmn_id_t *OpenAPI_plmn_id_create(
     char *mcc,
     char *mnc
 )
-{
+{   
+    // JASMINE: added following ***
+    char tmp_mcc[] = "999";
+    char tmp_mnc[] = "99";
+    char* new_mcc = tmp_mcc;
+    char* new_mnc = tmp_mnc;
+
     OpenAPI_plmn_id_t *plmn_id_local_var = ogs_malloc(sizeof(OpenAPI_plmn_id_t));
     ogs_assert(plmn_id_local_var);
 
-    plmn_id_local_var->mcc = mcc;
-    plmn_id_local_var->mnc = mnc;
-
+    // plmn_id_local_var->mcc = mcc;
+    // plmn_id_local_var->mnc = mnc;
+    plmn_id_local_var->mcc = new_mcc;
+    plmn_id_local_var->mnc = new_mnc;
+    //***
+    
     return plmn_id_local_var;
 }
 
